@@ -1,0 +1,107 @@
+<!-- <app-navbar></app-navbar>
+<div style="height: 90px;"></div>
+
+<div class="container">
+    <div>
+      <h2>Modifier un Logiciel:</h2>
+    </div>
+   
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate>
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >nom Logiciel</label>
+        <input type="text" [(ngModel)]="currentLogiciel.nom_logiciel"
+               name="nom_logiciel" class="form-control" required>
+      </div> 
+      <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >date_installation</label>
+        <input type="date"[ngModel]= "currentLogiciel.date_installation | date: 'yyyy-MM-dd'" 
+        (ngModelChange)=" currentLogiciel.date_installation= $event"
+               name="date_installation" class="form-control" required>
+      </div>
+     
+      <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >version_installee</label>
+        <input type="text"[(ngModel)]= "currentLogiciel.version_installee"
+               name="version_installee" class="form-control" required>
+      </div>
+      
+      <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >dernieres_mises_a_jours</label>
+        <input type="text"[(ngModel)]= "currentLogiciel.dernieres_mises_a_jours"
+               name="dernieres_mises_a_jours" class="form-control" required>
+      </div>
+      <div class="mt-2">
+        <button type="submit" class="btn btnsuccess">modifier</button>
+      </div>
+    </form>
+    <br>
+    
+    
+  </div>
+ -->
+
+
+ <html>
+    <body>
+      <app-nav-bar></app-nav-bar>
+      <div class="formulaire">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate enctype="multipart/form-data">
+            <div class="container">
+              <h1 class="alignement">Enregistrer un nouveau Logiciel</h1>
+              <hr>
+          
+              <label for="name"><b>nom du logiciel</b></label>
+              <input type="text" [(ngModel)]="currentLogiciel.nom" #nom="ngModel" name="nom" placeholder="Entrer le Nom du logiciel" required >
+          
+              <label for="name"><b>Version</b></label>
+              <input type="text" [(ngModel)]="currentLogiciel.version" #poste="ngModel" name="poste" placeholder="entrer la version Logiciel" required>
+
+              <input type="file" (change)="onchange($event)" style="display:none" >
+              <label for="image"><b>Image</b>
+              <img [src]="image" class="img-responsive img-thumbnail" style="width:70px;height:70px">
+             </label>
+
+              <label for="number"><b>Licence</b></label>
+              <input type="number" [(ngModel)]="currentLogiciel.licence" #poste="ngModel" name="poste" placeholder="entrer la Licence" required>
+
+
+              <label for="date"><b>date installation</b></label>
+              <input type="date" [(ngModel)]="currentLogiciel.createdAt" #date="ngModel" name="date" required>
+    
+              <label for="date"><b>dernieres_mises_a_jours</b></label>
+              <input type="date" [(ngModel)]="currentLogiciel.updateAt" #mise_a_jours="ngModel" name="mise_a_jours" required>
+              
+              <hr>
+          
+              <input class="button" type="submit" class="registerbtn" value="Modifier" />
+            </div>
+          
+          </form>
+    </div>
+
+    
+        <!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+            <h3>Modifier un Logiciel</h3>
+    <div>
+       <input type="text"  [(ngModel)]="currentLogiciel.nom_logiciel" #nom="ngModel" name="nom" class="form-control" placeholder="Nom du logiciel" required >
+
+       <label for="nom">Nom Logiciel</label>
+    </div>
+    <div>
+        <input type="date" [ngModel]="currentLogiciel.date_installation | date:'yyyy-MM-dd'" 
+        (ngModelChange)="currentLogiciel.date_installation= $event" #date="ngModel" name="date" class="form-control" required >
+        <label for="num">Date installation</label>
+    </div>
+    <div>
+      <input type="text" [(ngModel)]="currentLogiciel.poste" #poste="ngModel" name="poste" class="form-control" required >
+      <label for="poste">Poste </label>
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="currentLogiciel.dernieres_mises_a_jours" #mise_a_jours="ngModel" name="mise_a_jours" class="form-control" placeholder="Derniéres mises à jours"required minlength="2">
+    <label for="emplacement">Dernieres mises à jours </label>
+</div>
+
+    <input class="button" type="submit" value="Envoyer" />
+ </form> -->
+</body>
+</html>

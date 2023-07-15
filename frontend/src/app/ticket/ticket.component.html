@@ -1,0 +1,156 @@
+
+  <app-nav-bar></app-nav-bar>
+  <div class="container">
+
+    <h1 class="alignement">Liste des tickets Assigné au techniciens</h1>
+    <hr>
+        <a routerLink="/add-reparation"> <button class="btn3"><i class="fas  fa-plus"></i></button></a>
+
+        <div class="outer-wrapper">
+          <div class="head">
+            <div class="icons">
+              <i class="fas fa-print"></i>
+            </div>
+            <div class="search-wrapper">
+              <input class="search-input" type="text" placeholder="     Filtrer votre recherche">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+                <defs></defs>
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="table-wrapper">
+    <div class="tabl">
+        
+        <table >
+              
+            <thead>
+              <tr>
+                <th scope="col">#_ID</th>
+                <th scope="col">Machine </th>
+                <th scope="col">Description</th>
+                <th scope="col">nom du technicien</th>
+                <th scope="col">Status1</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let ticket of ticket">
+              <tr>
+                <th scope="row">{{ticket.id}}</th>
+                <td>{{ticket.machine}}</td>
+                <td> {{ticket.description}} </td>
+                <td>{{ticket.userId}}</td>
+                <td><a class="btn2" (click)="supprimer(ticket.id)" ><i class="fas fa-trash"></i></a></td>
+                <td><a class="btn1" [routerLink]="['/update-ticket',ticket.id]"><i class="fas  fa-pen-square"></i></a></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <th scope="row">1002</th>
+                <td>Scanner</td>
+                <td> reparation du scanner </td>
+                <td>Stephane</td>
+                <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+              </tr>
+          
+              <tr>
+                <th scope="row">1003</th>
+                <td>cables</td>
+                <td> reparation cable reseau</td>
+                <td>Clovis</td>
+                <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+              </tr>
+              <tr>
+                <th scope="row">1004</th>
+                <td>Scanner</td>
+                <td> reparation du scanner </td>
+                <td>Stephane</td>
+                <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+              </tr>   
+              <tr>
+                <th scope="row">1005</th>
+                <td>Router</td>
+                <td> probleme de connection a internet via le cable </td>
+                <td>Bertran</td>
+                <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+              </tr>
+
+              <tr>
+                <th scope="row">1006</th>
+                <td>Imprimante</td>
+                <td> resolution flou a chaque impression</td>
+                <td>Stephane</td>
+                <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+              </tr>
+              <tr>
+                <th scope="row">1007</th>
+                <td>Ornidanteur portable</td>
+                <td> probleme de chauffage</td>
+                <td>yvan</td>
+                <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+              </tr>   
+              <tr>
+                <th scope="row">1008</th>
+                <td>Imprimante</td>
+                <td> ucun format ne sort apres impression</td>
+                <td>bertran</td>
+                <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+              </tr>
+              <tr>
+                <th scope="row">1009</th>
+                <td>Imprimante</td>
+                <td> Video projecteur tombe du coup ne s'allume plus</td>
+                <td>Stephane</td>
+                <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">Total utilisateurs enregistrés</th>
+                <td  colspan="2">09</td>
+              </tr>
+            </tfoot>
+          </table>
+          
+       
+    </div>
+ </div>
+</div>
+</div>
+
+  <!-- modal de modification utilisateur -->
+  <!-- <div class="w3-container">
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="btncolor w3-button w3-display-topright">&times;</span>
+          <div class="formulaire">
+            <form method="POST" >
+                <div class="container">
+                  <h1 class="alignement">Fiche technicien N°_1003</h1>
+                  <hr>
+              
+                  <label for="name"><b>Date reparation</b></label>
+                  <input type="date" placeholder="Date de reparation" name="name" id="name" required>
+              
+                  <label for="name"><b>description</b></label>
+                  <textarea type="text"  id="w3review" name="w3review" rows="4" cols="50" ></textarea>
+                  
+              
+                  <label for="name"><b>Machine</b></label>
+                  <input type="number" placeholder="Entrer votre numero de telephone" name="phone" id="phone" required>
+        
+                  <label for="name"><b>Nom technicien</b></label>
+                  <input type="text" placeholder="Entrer une adress mail" name="email" id="email" required>
+                  <hr>
+              
+                  <button type="submit" class="registerbtn">Modifier</button>
+                </div>
+              
+              </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div> -->

@@ -1,0 +1,65 @@
+
+<html>
+    <body>
+        <div class="formulaire">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+                <div class="container">
+                  <h1 class="alignement">Demander une reparation !</h1>
+                  <hr>
+              
+                  <label for="date"><b>Description</b></label>
+                  <input type="text" [(ngModel)]="currentDemande.description" #description="ngModel" name="description" placeholder="description"required minlength="3">
+        
+                  <label for="name"><b>Type de dia</b></label>
+                  <input type="text" [(ngModel)]="currentDemande.typeDiagnostique" #dateDemande="ngModel" name="dateDemande" placeholder="Qui êtes-vous ?" required  readonly="readonly"> >
+              
+                  <label for="name"><b>Machine</b></label>
+                  <input type="text" [(ngModel)]="currentDemande.isAssign"  #machine="ngModel" name="machine" placeholder="Machine" required minlength="3">
+    
+                  <label for="date"><b>dernieres_mises_a_jours</b></label>
+                  <input type="date" [(ngModel)]="currentDemande.dernieres_mises_a_jours" #mise_a_jours="ngModel" name="mise_a_jours" required>
+                  
+                  <label for="name"><b>Description du probléme rencontré</b></label>
+                  <textarea readonly name="paragraph_text" cols="50" rows="30" [(ngModel)]="currentDemande.description" #description="ngModel" name="description" placeholder="Description du probléme rencontré" required ></textarea>
+            
+                  <label for="name"><b>Etat</b></label>
+                  <input  type="text" [(ngModel)]="currentDemande.etat"  #etat="ngModel" name="etat"  placeholder="Etat"  required minlength="3" >
+        
+
+                  <hr>
+              
+                  <input class="button" type="submit" class="registerbtn" value="Modifier" />
+                </div>
+              
+              </form>
+        </div>
+
+<!--     
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+            <h3>Demander une reparation !</h3>
+    <div>
+       <input type="date"  [(ngModel)]="currentDemande.dateDemande" #dateDemande="ngModel" name="dateDemande" class="form-control" placeholder="Qui êtes-vous ?" required  readonly="readonly">
+
+       <label for="Date demande">Date demande</label>
+    </div>
+    <div>
+        <input readonly type="text" [(ngModel)]="currentDemande.demandeur" #demandeur="ngModel" name="demandeur" class="form-control" placeholder="Demandeur"required minlength="3">
+        <label for="Demandeur">Demandeur</label>
+    </div>
+    <div>
+        <input readonly type="text" [(ngModel)]="currentDemande.machine"  #machine="ngModel" name="machine" class="form-control" placeholder="Machine" required minlength="3">
+        <label for="machine">Machine</label>
+    </div>
+  
+    <div>
+        <textarea readonly name="paragraph_text" cols="50" rows="30" [(ngModel)]="currentDemande.description" #description="ngModel" name="description" class="form-control" placeholder="Description du probléme rencontré" required ></textarea>
+        <label for="msg">Description du probléme rencontré</label>
+    </div>
+     <div>
+        <input  type="text" [(ngModel)]="currentDemande.etat"  #etat="ngModel" name="etat" class="form-control" placeholder="Etat"  required minlength="3" >
+        <label for="etat">Etat</label>
+    </div> 
+    <input class="button" type="submit" value="Envoyer" />
+ </form> -->
+</body>
+</html>

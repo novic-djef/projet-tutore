@@ -1,0 +1,32 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="col-12">
+    <div class="formulaire">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+            <div class="container">
+              <h1 class="alignement">Rediger un rapport </h1>
+              <hr>
+
+              <label for="password"><b>Titre du rapport</b></label>
+              <input type="text" [(ngModel)]="newRapport.title" #nom="ngModel" name="nom"  placeholder="Titre du rapport"required minlength="2">
+          
+              <label for="name"><b>Description</b></label>
+            <textarea type="text" name="paragraph_text" cols="50" rows="5" [(ngModel)]="newRapport.description" #description="ngModel" name="description" class="form-control" placeholder="Description de l'intervention" required ></textarea>
+
+              <!-- <label for="name"><b>Numero de l'intervention</b></label>
+              <input type="number" [(ngModel)]="newRapport.interventionId" #modele="ngModel" placeholder="Entrer la marque du materiels" name="modele" required>
+     -->
+              <label for="date"><b>date d'achat du matériel</b></label>
+              <input type="date" [(ngModel)]="newRapport.createdAt" #date="ngModel" name="date" required>
+    
+              <!-- <label for="email"><b>date d expiration de garantie</b></label>
+              <input type="date"  [(ngModel)]="newRapport.updateAt" #date="ngModel" name="date" required> -->
+              <hr>
+          
+              <!-- <input type="submit" class="registerbtn" value="Enregistrer"> -->
+              <button type="submit" class="registerbtn">enregistrer</button>
+            </div>
+          
+          </form>
+    </div>
+</div>

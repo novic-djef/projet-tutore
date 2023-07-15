@@ -1,0 +1,35 @@
+<!-- <app-nav-bar></app-nav-bar> -->
+
+ <html>
+    <body>
+
+
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate methode="POST" enctype="multipart/form-data">
+            <h3>Ajouter un nouveau Admin</h3>
+    <div>
+       <!-- <input type="text" id="nom" placeholder="Qui êtes-vous ?"/> -->
+       <input type="text"  [(ngModel)]="newAdmin.username" #username="ngModel" name="username" class="form-control" placeholder="Nom" required >
+
+       <label for="username">nom Admin</label>
+    </div>
+    <div>
+        <input type="email" [(ngModel)]="newAdmin.email" #amail_ad="ngModel" name="email" class="form-control" placeholder="Email"required minlength="6">
+        <label for="amail">Mail Admin</label>
+    </div>
+    <div>
+        <input type="password" [(ngModel)]="newAdmin.password"  #password="ngModel" name="password" class="form-control" placeholder="Mot de passe" required minlength="3">
+        <label for="password">Mot de passe</label>
+    </div>
+
+    <label for="name"><b>Image</b></label>
+                  <input type="file" [(ngModel)]="newAdmin.image" #image="ngModel" name="nom" required >
+              <hr>
+    <!-- <div>
+        <input type="number" [(ngModel)]="newAdmin.numero_ad"  #numero="ngModel" name="numero" class="form-control" placeholder="Numero" required minlength="3">
+        <label for="numero_ad">Numéro</label>
+    </div> -->
+
+    <input class="button" type="submit" value="Envoyer" />
+ </form>
+</body>
+</html>

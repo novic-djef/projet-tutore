@@ -1,0 +1,36 @@
+<app-nav-bar></app-nav-bar>
+
+        <div class="col-12">
+            <div class="formulaire">
+                <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+                    <div class="container">
+                      <h1 class="alignement">Demander une reparation !</h1>
+                      <hr>
+
+                      <label for="msg"><b>Description du probléme rencontré</b></label>
+                      <textarea type="text" name="paragraph_text" cols="50" rows="5" [(ngModel)]="demande.description" #description="ngModel" name="description" class="form-control" placeholder="Description du probléme rencontré" required ></textarea>
+                      
+                      <label for="diagnostique"><b>Type de Diagnostique</b></label>
+                      <input type="text" [(ngModel)]="demande.typeDiagnostique" #nom="ngModel" name="nom"  placeholder="Nom du matériel"required minlength="2">
+                  
+                      <label for="assiger"><b>Assigner a :</b></label>
+                      <input type="text" [(ngModel)]="demande.isAssign" #nom="ngModel" name="nom"  placeholder="Marque du matériel"required minlength="2">
+    
+                      <label for="name"><b>isFrequency</b></label>
+                      <input type="text" [(ngModel)]="demande.isFrequency" #modele="ngModel" placeholder="Entrer la marque du materiels" name="modele" required>
+            
+                      <label for="date"><b>date d'achat du matériel</b></label>
+                      <input type="date" [(ngModel)]="demande.createdAt" #date="ngModel" name="date" required>
+            
+                      <label for="email"><b>date d expiration de garantie</b></label>
+                      <input type="date"  [(ngModel)]="demande.updateAt" #date="ngModel" name="date" required>
+                      <hr>
+                  
+                    
+                      <!-- <input type="submit" class="registerbtn" value="Enregistrer"> -->
+                      <button type="submit" class="registerbtn">Envoyer</button>
+                    </div>
+                  
+                  </form>
+            </div>
+        </div>

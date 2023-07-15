@@ -1,0 +1,159 @@
+<!-- <app-nav-bar></app-nav-bar> -->
+<div class="container">
+
+<div class="outer-wrapper">
+  <div class="head">
+    <div class="icons">
+      <i class="fas fa-print"></i>
+    </div>
+    <div class="search-wrapper">
+      <input class="search-input" type="text" placeholder="     Filtrer votre recherche">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+        <defs></defs>
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="M21 21l-4.35-4.35"></path>
+      </svg>
+    </div>
+  </div>
+  <div class="table-wrapper">
+      
+  
+<div class="tabl">
+    
+    <table >
+        <thead>
+          <tr>
+            <th scope="col">#_ID</th>
+            <th scope="col">description </th>
+            <th scope="col">type de diagnostique </th>
+            <th scope="col">Attribuer</th>
+            <th scope="col">ID Utilisateur</th>
+            <th scope="col">ID Equipement</th>
+            <th scope="col">date d'assignation</th>
+            <th scope="col">date d'expiration</th>
+            
+            <!-- <th *ngIf="authservice.isAdmin()">action1</th>   
+            <th *ngIf="authservice.isAdmin()">action2</th> -->
+            <th >action1</th>   
+            <th >action2</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let intervention of Intervention">
+          <tr>
+            <th scope="row">{{intervention.id}}</th>
+            <td>{{intervention.description}}</td>
+            <td>{{intervention.typeDiagnostique}}</td>
+            <td>{{intervention.isAssign}}</td>
+            <td>{{intervention.userId}}</td>
+            <td>{{intervention.equipementId}}</td>
+            <!-- <td>{{intervention.createdAt |date:'dd/MM/yyyy'}}</td>
+            <td>{{intervention.updateAt |date:'dd/MM/yyyy'}}</td> -->
+
+            <!-- <td><a class="btn2" (click)="supprimerIntervention(intervention.id)" ><i class="fas fa-trash"></i></a></td>
+            <td><a class="btn1" [routerLink]="['/update-intervention',intervention.id']"><i class="fas  fa-pen-square"></i></a></td> -->
+            <!-- <td><a class="btn2" (click)="supprimerIntervention(intervention.id)" ><i class="fas fa-trash"></i></a></td>
+            <td><a class="btn1" [routerLink]="['/update-intervention',intervention.id']"><i class="fas  fa-pen-square"></i></a></td> -->
+
+          </tr>
+        </tbody>
+        <!-- <tbody>
+          <tr>
+            <th scope="row">1002</th>
+            <td>acces</td>
+            <td> 12/05/2023</td>
+            <td> 22/11/2023</td>
+            <td>Scanner</td>
+            <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+          </tr>
+      
+          <tr>
+            <th scope="row">1003</th>
+            <td>Dell</td>
+            <td> 22/04/2023</td>
+            <td> 22/12/2023</td>
+            <td>Imprimente</td>
+            <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+          </tr>
+          <tr>
+            <th scope="row">1004</th>
+            <td>HP</td>
+            <td> 22/06/2023</td>
+            <td> 20/01/2024</td>
+            <td>Photocopieuse</td>
+            <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+          </tr>   
+          <tr>
+            <th scope="row">1005</th>
+            <td>Assus</td>
+            <td> 04/01/2024</td>
+            <td> 12/06/2024</td>
+            <td>Ordinateur</td>
+            <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+          </tr>
+
+          <tr>
+            <th scope="row">1006</th>
+            <td>Tochiba</td>
+            <td> 22/05/2023</td>
+            <td> 22/07/2023</td>
+            <td>Video Projecteur</td>
+            <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+          </tr>
+          <tr>
+            <th scope="row">1007</th>
+            <td>Samsung</td>
+            <td> 22/05/2023</td>
+            <td> 22/10/2023</td>
+            <td>Tablette</td>
+            <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+          </tr>   
+          <tr>
+            <th scope="row">1008</th>
+            <td>Mac Os</td>
+            <td> 02/05/2024</td>
+            <td> 09/12/2024</td>
+            <td>Ordinateur</td>
+            <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+          </tr>
+        </tbody> -->
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="5">Total Interventions enregistrés</th>
+            <!-- <td  colspan="2">{{materiel.id.length}}</td> -->
+          </tr>
+        </tfoot>
+      </table>
+      
+   
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- <div class="container">
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table table-striped">
+          <tr> 
+            <th>Date intervention</th><th>Description</th> <th>machine</th>   <th>nom du technicien</th> <th>action1</th> <th>action2</th> </tr>
+          <tbody *ngFor="let intervention of Intervention">
+          <tr >
+            <td>{{intervention.date_inter}}</td>
+            <td>{{intervention.description}}</td>
+            <td>{{intervention.machine}}</td>
+            <td>{{user}}</td>
+            <td><a class="btn btn-danger" (click)="supprimerIntervention(intervention.id)" >supprimer</a></td>
+            <td><a class="btn btn-success" [routerLink]="['/update-intervention',intervention.id]" >modifier</a></td>
+           </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> -->
+  <!-- <a  routerLink="/add-intervention"><button class="custom-btn btn-3"><span>Ajouter Intervention</span></button></a> -->
+  <!-- <a *ngIf="authservice.isTechnicien()" routerLink="/add-intervention"><button class="custom-btn btn-3"><span>Ajouter Intervention</span></button></a> -->
+
+

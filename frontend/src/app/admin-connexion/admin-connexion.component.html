@@ -1,0 +1,30 @@
+<!-- <app-nav-bar></app-nav-bar> -->
+
+  <div><p>Connexion</p></div>
+  <form>
+    <div class="form-group row">
+      <label for="example-email-input" class="col-2 col-form-label">nom</label>
+      <div class="col-10">
+        <input class="form-control" type="texte" id="example-email-input">
+      </div>
+    <div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">email</label>
+    <div class="col-10">
+      <input class="form-control" type="email" id="example-text-input">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="example-search-input" class="col-2 col-form-label">mot de passe</label>
+    <div class="col-10">
+      <input class="form-control" type="password"  id="example-search-input">
+    </div>
+  </div>
+
+  </div>
+</form>
+<div style="margin-top: 40px;">
+
+  <a routerLinkActive="active"routerLink="/add-admin" >Cliquez ici pour crér un compte</a>
+  <router-outlet></router-outlet>
+
+</div>

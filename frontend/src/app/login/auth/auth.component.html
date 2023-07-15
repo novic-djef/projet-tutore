@@ -1,0 +1,38 @@
+
+<body>
+<!-- <div class="col-md-4">
+  <div class="wrapper"  *ngIf="erreur==1">
+  <div class="typing-demo">login ou mot de passe erroné..</div>
+
+  </div>
+  </div> -->
+<div class="login-box">
+  <h2>Login</h2>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate methode="POST" enctype="multipart/form-data">
+    <div class="user-box">
+      <input type="username" name="username" [(ngModel)]="user.username" formControleName="username">
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" [(ngModel)]="user.password" formControleName="password">
+      <label>Password</label>
+    </div>
+    <button type="submit"  
+>
+<span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+Connexion
+</button>
+    <a href="#" >
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Submit
+    </a>
+    <input class="button" type="submit" value="Envoyer" />
+    </form>
+</div>
+</body>

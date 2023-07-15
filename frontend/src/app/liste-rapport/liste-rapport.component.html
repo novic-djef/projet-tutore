@@ -1,0 +1,128 @@
+<app-nav-bar></app-nav-bar>
+
+
+<div class="container">
+
+
+<div class="outer-wrapper">
+    <div class="head">
+      <div class="icons">
+        <i class="fas fa-print"></i>
+      </div>
+      <div class="search-wrapper">
+        <input class="search-input" type="text" placeholder="     Filtrer votre recherche">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+          <defs></defs>
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="M21 21l-4.35-4.35"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="table-wrapper">
+        
+    
+  <div class="tabl">
+      
+      <table >
+            
+          <thead>
+            <tr>
+              <th scope="col">#_ID</th>
+              <th scope="col">Titre du rapport </th>
+              <th scope="col">Description rapport  </th>
+              <th scope="col">date d'achat</th>
+              <!-- <th scope="col">date d'expiration</th> -->
+              
+              <!-- <th *ngIf="authservice.isAdmin()">action1</th>   
+              <th *ngIf="authservice.isAdmin()">action2</th> -->
+              <th >action1</th>   
+              <th >action2</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let rapport of Rapport">
+            <tr>
+              <th scope="row">{{rapport.id}}</th>
+              <td>{{rapport.title}}</td>
+              <td>{{rapport.description}}</td>
+              <td>{{rapport.createdAt |date:'dd/MM/yyyy'}}</td>
+              <!-- <td>{{rapport.updateAt |date:'dd/MM/yyyy'}}</td> -->
+
+              <!-- <td><a *ngIf="authservice.isAdmin()" class="btn2" (click)="supprimerMateriel(materiel.id)" ><i class="fas fa-trash"></i></a></td>
+              <td><a *ngIf="authservice.isAdmin()" class="btn1" [routerLink]="['/update-materiel',materiel.id]"><i class="fas  fa-pen-square"></i></a></td> -->
+              <td><a class="btn2" (click)="supprimerRapport(rapport.id)" ><i class="fas fa-trash"></i></a></td>
+              <td><a class="btn1" [routerLink]="['/update-rapport',rapport.id]"><i class="fas  fa-pen-square"></i></a></td>
+
+            </tr>
+          </tbody>
+          <!-- <tbody>
+            <tr>
+              <th scope="row">1002</th>
+              <td>acces</td>
+              <td> 12/05/2023</td>
+              <td> 22/11/2023</td>
+              <td>Scanner</td>
+              <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+            </tr>
+        
+            <tr>
+              <th scope="row">1003</th>
+              <td>Dell</td>
+              <td> 22/04/2023</td>
+              <td> 22/12/2023</td>
+              <td>Imprimente</td>
+              <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+            </tr>
+            <tr>
+              <th scope="row">1004</th>
+              <td>HP</td>
+              <td> 22/06/2023</td>
+              <td> 20/01/2024</td>
+              <td>Photocopieuse</td>
+              <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+            </tr>   
+            <tr>
+              <th scope="row">1005</th>
+              <td>Assus</td>
+              <td> 04/01/2024</td>
+              <td> 12/06/2024</td>
+              <td>Ordinateur</td>
+              <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+            </tr>
+
+            <tr>
+              <th scope="row">1006</th>
+              <td>Tochiba</td>
+              <td> 22/05/2023</td>
+              <td> 22/07/2023</td>
+              <td>Video Projecteur</td>
+              <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+            </tr>
+            <tr>
+              <th scope="row">1007</th>
+              <td>Samsung</td>
+              <td> 22/05/2023</td>
+              <td> 22/10/2023</td>
+              <td>Tablette</td>
+              <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+            </tr>   
+            <tr>
+              <th scope="row">1008</th>
+              <td>Mac Os</td>
+              <td> 02/05/2024</td>
+              <td> 09/12/2024</td>
+              <td>Ordinateur</td>
+              <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+            </tr>
+          </tbody> -->
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="5">Total utilisateurs enregistrés</th>
+              <td  colspan="2">12</td>
+            </tr>
+          </tfoot>
+        </table>
+        
+      </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,112 @@
+html{  
+    background-size:cover;
+  font-family:"Quicksand","Open Sans",sans-serif;
+    padding-top:100px;
+  }
+  form{
+    max-width:850px;
+    margin:0 auto;
+    border-top:15px solid #313A3D;
+    background:#FFF;
+    padding:20px 20px 60px;
+    text-align:center;
+    font-family:Raleway;
+    text-align:center;
+    color:#B6B6B6;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    opacity:0.95;
+    box-shadow:0 0 15px -1px #141414;
+  }
+  h3{
+    text-transform:uppercase;
+    font-size:20px;
+    line-height:60px
+  }
+  div *{box-sizing:border-box;}
+  div{
+    width:70%;
+    margin:10px auto;
+    height:50px;
+  }
+  div input, textarea{
+    width:100%;
+    height:100%;
+    opacity:0.9;
+    padding-left:22%;
+    background-color:#E8E9EA;
+    border:0;
+    outline:none;
+    margin:0;
+  }
+  label{
+    display:block;
+    position:relative;
+    top:-50px;
+    width:100%;
+    height:100%;
+    background-color:#313A3D;
+    position:relative;
+    line-height:50px;
+    font-size:18px;
+    transition: all 0.3s ease-in-out,width 0.7s ease-in-out;
+    text-transform:uppercase;
+  }
+  .ouvert label{ width:20%; }
+  #formContact .contactChamp:nth-child(3) label{
+    transition: all 0.3s ease-in-out, width 0.7s ease-in-out; }
+  #formContact .contactChamp:nth-child(4) label{
+    transition: all 0.3s ease-in-out, width 0.9s ease-in-out; }
+  #formContact .contactChamp:nth-child(5) label{
+    transition: all 0.3s ease-in-out, width 1.1s ease-in-out; }
+  #formContact .contactChamp:nth-child(6) label{
+    transition: all 0.3s ease-in-out, width 1.3s ease-in-out; }
+  
+  
+  div:hover label, div input:focus + label,div textarea:focus + label, .labelOuvert{
+    width:20%;
+  }
+  div input:focus + label,div textarea:focus + label{
+    background-color:rgb(116, 181, 89);
+    color:#313A3D;
+  }
+  input[type=submit]{
+    background-color:#313A3D;
+    border:0;
+    height:50px;
+    padding:0 20px;
+    text-transform:uppercase;
+    color:rgb(116, 181, 89);
+    font-size:15px;
+    margin-top:35px;
+  }
+  textarea{
+    resize: none;
+    padding-top:18px;
+    transition:all 0.3s ease-in-out;
+  }
+  textarea + label{
+    top:-54px;
+  }
+  textarea:focus, .messOuvert textarea{
+    height:150px;
+  }
+  textarea:focus + label,.messOuvert label{
+    top:-154px;
+    height:150px;
+    line-height:150px;
+  }
+  .messOuvert{
+    margin-bottom:100px
+  }
+  
+  
+  
+  @media screen and (max-width: 1070px) {
+    form{
+      width:100%;
+    }
+    form div{
+      width:90%;
+    }
+  }

@@ -1,0 +1,195 @@
+<!-- <app-nav-bar></app-nav-bar>
+<div style="height: 90px;"></div>
+
+<div class="container">
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table table-striped">
+          <tr> <th>Id</th><th>Nom de technicien</th> <th>Numéro de technicien</th>  <th *ngIf="authservice.isAdmin()">action1</th> <th *ngIf="authservice.isAdmin()">action2</th> </tr>
+          <tbody *ngFor="let technicien of Technicien ">
+          <tr >
+            <td>{{technicien.id_technicien}}</td>
+            <td>{{technicien.nom_technicen}}</td>
+            <td>{{technicien.num_technicien}}</td>
+
+
+              <td><a *ngIf="authservice.isAdmin()" class="btn btn-danger" (click)="supprimerTechnicien(technicien.id_technicien)" >supprimer</a></td>
+              <td><a *ngIf="authservice.isAdmin()" class="btn btn-success" [routerLink]="['/update-technicien',technicien.id_technicien]" >modifier</a></td> -->
+
+           <!--  <a class="btn btn-danger" (click)="supprimerProduit(produit)">Supprimer</a> &nbsp;&nbsp;
+           <a class="btn btn-success" [routerLink]="['/updateProduit',produit.idProduit]">Modifier</a></td> -->
+           <!-- </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <a *ngIf="authservice.isAdmin()"routerLink="/add-technicien"><button class="custom-btn btn-3"><span>Ajouter technicien</span></button></a> -->
+
+  <app-nav-bar></app-nav-bar>
+
+  <div class="group">
+  
+    <div class="col-4">
+        <div class="formulaire">
+            <form  #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+                <div class="container">
+                  <h1 class="alignement">Enregistrer un utilisateur</h1>
+                  <hr>
+              
+                  <label for="name"><b>Nom </b></label>
+                  <input type="text" [(ngModel)]="newTechnicien.username" #nom="ngModel" name="nom" placeholder="Entrer votre nom" name="name" id="name" required>
+              
+                  <label for="email"><b>Email </b></label>
+                  <input type="email" [(ngModel)]="newTechnicien.email" #nom="ngModel" name="email" placeholder="Entrer votre adress mail" name="name" id="name" required>
+              
+                  <label for="password"><b>Mot de passe</b></label>
+                  <input type="password" [(ngModel)]="newTechnicien.password" #nom="ngModel" name="nom" placeholder="Entrer votre mot de passe" name="name" id="name" required>
+
+                  <label for="phone"><b>Telephone </b></label>
+                  <input type="number" [(ngModel)]="newTechnicien.phone" #num="ngModel" name="num" placeholder="Entrer votre numero de telephone" name="phone" id="phone" required>
+        
+                  <label for="name"><b>Image</b></label>
+                  <input type="file" [(ngModel)]="newTechnicien.image" #nom="ngModel" name="nom" required >
+              <hr>
+
+                  <label for="password"><b>Role</b></label>
+                  <input type="text" [(ngModel)]="newTechnicien.role" #mdp="ngModel" name="mdp" placeholder="Entrer votre numero de telephone" name="phone" id="phone" required>
+        
+                  <hr>
+                  <input class="registerbtn" type="submit" value="Enregistrer" />
+                </div>
+              
+              </form>
+        </div>
+    </div>
+    <div class="col-8">
+      <div class="container">
+        <h1 class="alignement">liste des utilisateurs Enregistrés</h1>
+        <hr>
+        <!-- <a *ngIf="authservice.isAdmin()"routerLink="/add-technicien"><button class="custom-btn btn-3"><span>Ajouter technicien</span></button></a> -->
+        <div class="outer-wrapper">
+          <div class="head">
+            <div class="icons">
+              <i class="fas fa-print"></i>
+            </div>
+            <div class="search-wrapper">
+              <input class="search-input" type="text" placeholder="     Filtrer votre recherche">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+                <defs></defs>
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="table-wrapper">
+        <div class="tabl">
+            
+            <table >
+                  
+                <thead>
+                  <tr>
+                    <th scope="col">#_ID</th>
+                    <th scope="col">Nom </th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Telephone</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Supprimer</th>
+                    <th scope="col">Modifier</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let technicien of Technicien ">
+                  <tr>
+                    <th scope="row">{{technicien.id}}</th>
+                    <td> {{technicien.username}}</td>
+                    <td> {{technicien.email}}</td>
+                    <td> {{technicien.password}}</td>
+                    <td> {{technicien.phone}}</td>
+                    <td><img src="{{technicien.image}}" class="img-responsive img-thumbnail" style="width:70px;height:70px"></td>
+                    <td> {{technicien.role}}</td>
+                    <!-- <td><a *ngIf="authservice.isAdmin()" class="btn btn-danger" (click)="supprimerTechnicien(technicien.id_technicien)" class="btn2"><i class="fas fa-trash"></i></a></td>
+                    <td><a *ngIf="authservice.isAdmin()" [routerLink]="['/update-technicien',technicien.id_technicien]" class="btn1"><i class="fas  fa-pen-square"></i></a></td> -->
+                    <td><a class="btn btn-danger" (click)="supprimerUser(technicien.id)" class="btn2"><i class="fas fa-trash"></i></a></td>
+                    <td><a [routerLink]="['/update-technicien',technicien.id]" class="btn1"><i class="fas  fa-pen-square"></i></a></td>
+                    <!-- <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td> -->
+                  </tr>
+                </tbody>
+                <!-- <tbody>
+                  <tr>
+                    <th scope="row">1002</th>
+                    <td>aubin</td>
+                    <td> 694789951</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+              
+                  <tr>
+                    <th scope="row">1003</th>
+                    <td>Clovis</td>
+                    <td> 650514417</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1004</th>
+                    <td>torau</td>
+                    <td> 620089951</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>   
+                  <tr>
+                    <th scope="row">1005</th>
+                    <td>stela</td>
+                    <td> 657189941</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                  
+                </tbody> -->
+                <tfoot>
+                  <tr>
+                    <th scope="row" colspan="5">Total utilisateurs enregistrés</th>
+                    <td  colspan="2">05</td>
+                  </tr>
+                </tfoot>
+              </table>
+              
+        </div>
+        </div>
+     </div>
+
+   </div>
+    <!-- modal de modification utilisateur -->
+   <!-- <div class="w3-container">
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="btncolor w3-button w3-display-topright">&times;</span>
+          <div class="formulaire">
+            <form method="POST" >
+                <div class="container">
+                  <h1 class="alignement">Modifier le Technicien N°_1003</h1>
+                  <hr>
+              
+                  <label for="name"><b>Nom Fournisseur</b></label>
+                  <input type="text" placeholder="Entrer votre nom" name="name" id="name" required>
+              
+              
+                  <label for="phone"><b>Telephone</b></label>
+                  <input type="number" placeholder="Entrer votre numero de telephone" name="phone" id="phone" required>
+        
+                  <hr>
+              
+                  <button type="submit" class="registerbtn">Modifier</button>
+                </div>
+              
+              </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+ 
+    
+
+

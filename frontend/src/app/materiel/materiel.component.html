@@ -1,0 +1,255 @@
+<!-- <app-nav-bar></app-nav-bar>
+<div style="height: 90px;"></div>
+
+<div class="container">
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table table-striped">
+          <tr> <th>Id matériel</th><th>Marque du matériel</th> <th>date d'achat du matériel</th> <th>date d expiration de garantie</th>  <th>nom du matériel</th>   <th *ngIf="authservice.isAdmin()">action1</th> <th *ngIf="authservice.isAdmin()">action2</th> </tr>
+          <tbody *ngFor="let materiel of Materiel">
+          <tr >
+            <td>{{materiel.id_materiel}}</td>
+            <td>{{materiel.modele}}</td>
+            <td>{{materiel.date_achat |date:'dd/MM/yyyy'}}</td>
+            <td>{{materiel.date_expiration_garantie |date:'dd/MM/yyyy'}}</td>
+            <td>{{materiel.nom_materiel}}</td>
+
+                <td><a *ngIf="authservice.isAdmin()" class="btn btn-danger" (click)="supprimerMateriel(materiel.id_materiel)" >supprimer</a></td>
+                <td><a *ngIf="authservice.isAdmin()" class="btn btn-success" [routerLink]="['/update-materiel',materiel.id_materiel]">modifier</a></td>
+
+
+           </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <a *ngIf="authservice.isAdmin()" routerLink="/add-materiel"><button class="custom-btn btn-3"><span>Ajouter matériel</span></button></a> -->
+
+  <app-nav-bar></app-nav-bar>
+  <div class="group">
+    <div class="col-4">
+        <div class="formulaire">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate methode="POST" enctype="multipart/form-data">
+                <div class="container">
+                  <h1 class="alignement">Enregistrer un nouveau Materiels</h1>
+                  <hr>
+
+                  <label for="password"><b>nom du matériel</b></label>
+                  <input type="text" [(ngModel)]="newMateriel.nom" #nom="ngModel" name="nom"  placeholder="Nom du matériel"required minlength="2">
+              
+                  <label for="password"><b>marque du matériel</b></label>
+                  <input type="text" [(ngModel)]="newMateriel.marque" #nom="ngModel" name="nom"  placeholder="Marque du matériel"required minlength="2">
+
+                  <label for="name"><b>image du matériel</b></label>
+                  <input type="file" [(ngModel)]="newMateriel.image" #modele="ngModel" placeholder="Entrer la marque du materiels" name="modele" required>
+        
+                  <label for="name"><b>quantité du matériel</b></label>
+                  <input type="number" [(ngModel)]="newMateriel.quantite" #modele="ngModel" placeholder="Entrer la marque du materiels" name="modele" required>
+        
+                  <label for="date"><b>date d'achat du matériel</b></label>
+                  <input type="date" [(ngModel)]="newMateriel.createdAt" #date="ngModel" name="date" required>
+        
+                  <label for="email"><b>date d expiration de garantie</b></label>
+                  <input type="date"  [(ngModel)]="newMateriel.updateAt" #date="ngModel" name="date" required>
+                  <hr>
+              
+                  <!-- <input type="submit" class="registerbtn" value="Enregistrer"> -->
+                  <button type="submit" class="registerbtn">enregistrer</button>
+                </div>
+              
+              </form>
+        </div>
+    </div>
+    <div class="col-8">
+      <div class="container">
+        <h1 class="alignement"> Liste du materiels Enregistrés</h1>
+        <hr>
+        <a *ngIf="authservice.isAdmin()" routerLink="/add-materiel"><button class="custom-btn btn-3"><span>Ajouter matériel</span></button></a> 
+
+
+        <div class="outer-wrapper">
+          <div class="head">
+            <div class="icons">
+              <i class="fas fa-print"></i>
+            </div>
+            <div class="search-wrapper">
+              <input class="search-input" type="text" placeholder="     Filtrer votre recherche">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+                <defs></defs>
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="table-wrapper">
+              
+          
+        <div class="tabl">
+            
+            <table >
+                  
+                <thead>
+                  <tr>
+                    <th scope="col">#_ID</th>
+                    <th scope="col">nom </th>
+                    <th scope="col">Marque  </th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Quantité en stock</th>
+                    <th scope="col">date d'achat</th>
+                    <th scope="col">date d'expiration</th>
+                    
+                    <!-- <th *ngIf="authservice.isAdmin()">action1</th>   
+                    <th *ngIf="authservice.isAdmin()">action2</th> -->
+                    <th >action1</th>   
+                    <th >action2</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let materiel of Materiel">
+                  <tr>
+                    <th scope="row">{{materiel.id}}</th>
+                    <td>{{materiel.nom}}</td>
+                    <td>{{materiel.marque}}</td>
+                    <td ><img  src="{{materiel.image}}" class="img-responsive img-thumbnail" style="width:70px;height:70px"></td>
+                    <td>{{materiel.quantite}}</td>
+                    <td>{{materiel.createdAt |date:'dd/MM/yyyy'}}</td>
+                    <td>{{materiel.updateAt |date:'dd/MM/yyyy'}}</td>
+
+                    <!-- <td><a *ngIf="authservice.isAdmin()" class="btn2" (click)="supprimerMateriel(materiel.id)" ><i class="fas fa-trash"></i></a></td>
+                    <td><a *ngIf="authservice.isAdmin()" class="btn1" [routerLink]="['/update-materiel',materiel.id]"><i class="fas  fa-pen-square"></i></a></td> -->
+                    <td><a class="btn2" (click)="supprimerMateriel(materiel.id)" ><i class="fas fa-trash"></i></a></td>
+                    <td><a class="btn1" [routerLink]="['/update-materiel',materiel.id]"><i class="fas  fa-pen-square"></i></a></td>
+
+                  </tr>
+                </tbody>
+                <!-- <tbody>
+                  <tr>
+                    <th scope="row">1002</th>
+                    <td>acces</td>
+                    <td> 12/05/2023</td>
+                    <td> 22/11/2023</td>
+                    <td>Scanner</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+              
+                  <tr>
+                    <th scope="row">1003</th>
+                    <td>Dell</td>
+                    <td> 22/04/2023</td>
+                    <td> 22/12/2023</td>
+                    <td>Imprimente</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1004</th>
+                    <td>HP</td>
+                    <td> 22/06/2023</td>
+                    <td> 20/01/2024</td>
+                    <td>Photocopieuse</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>   
+                  <tr>
+                    <th scope="row">1005</th>
+                    <td>Assus</td>
+                    <td> 04/01/2024</td>
+                    <td> 12/06/2024</td>
+                    <td>Ordinateur</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">1006</th>
+                    <td>Tochiba</td>
+                    <td> 22/05/2023</td>
+                    <td> 22/07/2023</td>
+                    <td>Video Projecteur</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1007</th>
+                    <td>Samsung</td>
+                    <td> 22/05/2023</td>
+                    <td> 22/10/2023</td>
+                    <td>Tablette</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>   
+                  <tr>
+                    <th scope="row">1008</th>
+                    <td>Mac Os</td>
+                    <td> 02/05/2024</td>
+                    <td> 09/12/2024</td>
+                    <td>Ordinateur</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                </tbody> -->
+                <tfoot>
+                  <tr>
+                    <th scope="row" colspan="5">Total utilisateurs enregistrés</th>
+                    <td  colspan="2">12</td>
+                  </tr>
+                </tfoot>
+              </table>
+              
+            </div>
+        </div>
+      </div>
+    </div>
+     </div>
+
+   </div>
+    <!-- modal de modification utilisateur -->
+   <!-- <div class="w3-container">
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="btncolor w3-button w3-display-topright">&times;</span>
+          <div class="formulaire">
+            <form method="POST" >
+                <div class="container">
+                  <h1 class="alignement">Modifier l'utilisateur N°_1003</h1>
+                  <hr>
+              
+                  <label for="name"><b>Marque du matériel</b></label>
+                  <select name="languages" type=text id="lang">
+                    <option value="javascript">Dell</option>
+                    <option value="php"> HP</option>
+                    <option value="java">Mac OS</option>
+                    <option value="golang">Acces</option>
+                    <option value="python">assus</option>
+                    <option value="c#">Tochiba</option>
+                    <option value="C++">samsung</option>
+                    <option value="erlang">huawei</option>
+                  </select>
+              
+                  <label for="date"><b>date d'achat du matériel</b></label>
+                  <input type="date"  name="date" id="date" required>
+        
+                  <label for="email"><b>date d expiration de garantie</b></label>
+                  <input type="date"  name="date" id="date" required>
+
+                  <label for="password"><b>nom du matériel</b></label>
+                  <select name="languages" type=text id="lang">
+                    <option value="Ordinateur">Ordinateur</option>
+                    <option value="Photocopieuse"> Photocopieuse</option>
+                    <option value="scanner">Scanner</option>
+                    <option value="imprimente">Imprimente</option>
+                    <option value="video">Video Projecteur</option>
+                    <option value="tablete">Tablete</option>
+                    <option value="Modem">Modem</option>
+           
+                  </select>
+                  <hr>
+                  <button type="submit" class="registerbtn">Modifier</button>
+                </div>
+              
+              </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+ 
+    
+

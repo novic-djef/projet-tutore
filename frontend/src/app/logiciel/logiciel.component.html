@@ -1,0 +1,217 @@
+<app-nav-bar></app-nav-bar>
+  <div class="group">
+    <div class="col-4">
+        <div class="formulaire">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate enctype="multipart/form-data">
+             
+                <div class="container">
+                  <h1 class="alignement">Enregistrer un nouveau logiciel</h1>
+                  <hr>
+              
+                  <label for="name"><b>nom du logiciel</b></label>
+                  <input type="text" [(ngModel)]="newLogiciel.nom" #nom="ngModel" name="nom" placeholder="Entrer le Nom du logiciel" required >
+              
+                  <label for="name"><b>Version</b></label>
+                  <input type="text" [(ngModel)]="newLogiciel.version" #version="ngModel" name="nom" placeholder="Entrer la version logiciel" required >
+              
+                  <label for="name"><b>Image</b></label>
+                  <input type="file" [(ngModel)]="newLogiciel.image" #image="ngModel" name="nom" required >
+              <hr>
+                  <label for="name"><b>Licence</b></label>
+                  <input type="number" [(ngModel)]="newLogiciel.licence" #licence="ngModel" name="nom" placeholder="Entrer le numero de Licence" required >
+              
+
+                  <label for="date"><b>date installation</b></label>
+                  <input type="date" [(ngModel)]="newLogiciel.createdAt" #date="ngModel" name="date" required>
+
+                  <label for="password"><b>dernieres_mises_a_jours</b></label>
+                  <input type="date" [(ngModel)]="newLogiciel.updateAt" #mise_a_jours="ngModel" name="mise_a_jours" required>
+                  
+                  <hr>
+              
+                  <input class="button" type="submit" class="registerbtn" value="Enregistrer" />
+                </div>
+              
+              </form>
+        </div>
+    </div>
+    <div class="col-8">
+      <div class="container">
+
+        <h1 class="alignement"> Liste du Logiciel Enregistrés</h1>
+        <hr>
+        <div class="outer-wrapper">
+          <div class="head">
+            <div class="icons">
+              <i class="fas fa-print"></i>
+            </div>
+            <div class="search-wrapper">
+              <input class="search-input" type="text" placeholder="     Filtrer votre recherche">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+                <defs></defs>
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="table-wrapper">
+        <div class="tabl">
+            
+            <table >
+                  
+                <thead>
+                  <tr>
+                    <th scope="col">#_ID</th>
+                    <th scope="col">Nom  </th>
+                    <th scope="col">Version</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Licence</th>
+                    <th scope="col">Date d'installation</th>
+                    <th scope="col">Derniere mise a jour </th>
+                    <th>action1</th>
+                    <th>action2</th>
+                    <!-- <th *ngIf="authservice.isAdmin()">action1</th>
+                    <th *ngIf="authservice.isAdmin()">action2</th> -->
+                  </tr>
+                </thead>
+                <tbody *ngFor="let logiciel of Logiciel">
+                  <tr>
+                    <th scope="row">{{logiciel.id}}</th>
+                    <td>{{logiciel.nom}}</td>
+                    <td>{{logiciel.version }}</td>
+                    <td><img src="{{logiciel.image}}" class="img-responsive img-thumbnail" style="width:70px;height:70px"></td>
+                    <td>{{logiciel.licence}}</td>
+                    <td>{{logiciel.createdAt |date:'dd/MM/yyyy'}}</td>
+                    <td>{{logiciel.updateAt |date:'dd/MM/yyyy'}}</td>
+                    <!-- <td><a *ngIf="authservice.isAdmin()" class="btn2" (click)="supprimerLogiciel(logiciel.id)" ><i class="fas fa-trash"></i></a></td>
+                    <td><a *ngIf="authservice.isAdmin()" class="btn1" [routerLink]="['/update-logiciel',logiciel.id]"><i class="fas  fa-pen-square"></i></a></td> -->
+                    <td><a class="btn2" (click)="supprimerLogiciel(logiciel.id)" ><i class="fas fa-trash"></i></a></td>
+                    <td><a class="btn1" [routerLink]="['/update-logiciel',logiciel.id]"><i class="fas  fa-pen-square"></i></a></td>
+                  </tr>
+                </tbody>
+                <!-- <tbody>
+                  <tr>
+                    <th scope="row">1002</th>
+                    <td>Sage X</td>
+                    <td> 16/01/2022</td>
+                    <td>Service administratif</td>
+                    <td> 07/02/2023</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+              
+                  <tr>
+                    <th scope="row">1003</th>
+                    <td>Word</td>
+                    <td> 1O/04/2021</td>
+                    <td>Secretariat</td>
+                    <td> 07/02/2023</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1004</th>
+                    <td>LGPI</td>
+                    <td> 14/05/2022</td>
+                    <td>Administrateur informatique</td>
+                    <td> 17/02/2023</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>   
+                  <tr>
+                    <th scope="row">1005</th>
+                    <td>Photoshop</td>
+                    <td> 1O/04/2021</td>
+                    <td>infographe</td>
+                    <td> 15/01/2023</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">1006</th>
+                    <td>Illustrator</td>
+                    <td> 1O/01/2022</td>
+                    <td>Infographe</td>
+                    <td> 28/03/2023</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1007</th>
+                    <td>oneNote</td>
+                    <td> 1O/01/2021</td>
+                    <td>Secretariat</td>
+                    <td> 08/03/2023</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>   
+                  <tr>
+                    <th scope="row">1008</th>
+                    <td>Power Point</td>
+                    <td> 1O/12/2021</td>
+                    <td>Secretariat</td>
+                    <td> 29/01/2023</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                </tbody> -->
+                <tfoot>
+                  <tr>
+                    <th scope="row" colspan="5">Total utilisateurs Logiciel</th>
+                    <td  colspan="2">08</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+           
+        </div>
+     </div>
+    </div>
+   </div>
+    <!-- modal de modification utilisateur -->
+   <!-- <div class="w3-container">
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="btncolor w3-button w3-display-topright">&times;</span>
+          <div class="formulaire">
+            <form method="POST" >
+                <div class="container">
+                  <h1 class="alignement">Modifier l'utilisateur N°_1003</h1>
+                  <hr>
+              
+                  <label for="name"><b>nom du logiciel</b></label>
+                  <select name="languages" type=text id="lang">
+                    <option value="javascript">Excel</option>
+                    <option value="php"> Word</option>
+                    <option value="java">Sage X</option>
+                    <option value="golang">Power point</option>
+                    <option value="python">OneNote</option>
+                    <option value="c#">LGPI</option>
+                    <option value="C++">photoShop</option>
+                    <option value="erlang">Illustrator</option>
+                  </select>
+              
+                  <label for="date"><b>date installation</b></label>
+                  <input type="date"  name="date" id="date" required>
+        
+                  <label for="name"><b>Poste</b></label>
+                  <input type="text"  placeholder="entrer le poste" name="name" id="name" required>
+
+                  <label for="password"><b>dernieres_mises_a_jours</b></label>
+                  <input type="date" name="date" id="date"  required>
+                  
+                  <hr>
+                  <button type="submit" class="registerbtn">Modifier</button>
+                </div>
+              
+              </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+ 
+    
+
+
+
+
+

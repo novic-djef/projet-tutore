@@ -1,0 +1,38 @@
+
+
+
+
+   
+      <div class="container">
+        
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+            <div class="container">
+              <h1 class="alignement">Modifier un Matériel</h1>
+              <hr>
+          
+              <label for="password"><b>nom de la machine</b></label>
+              <input type="text" [(ngModel)]="currentTicket.machine" #nom="ngModel" name="nom"  placeholder="Nom du matériel"required minlength="2">
+              
+              <label for="name"><b>Description</b></label>
+              <input type="text" [(ngModel)]="currentTicket.description" #modele="ngModel" name="modele" placeholder="Entrer la marque du materiels" name="modele" required>
+    
+              <label for="password"><b>User ID</b></label>
+              <input type="number" [(ngModel)]="currentTicket.userId" #nom="ngModel" name="nom"  placeholder="Nom du matériel"required minlength="2">
+              
+              
+            
+              <label for="date"><b>date d'achat du matériel</b></label>
+              <input type="date"[ngModel]="currentTicket.createdAt | date:'yyyy-MM-dd'"
+              (ngModelChange)="currentTicket.createdAt= $event"  name="createdAt" required>
+    
+              <label for="email"><b>date d expiration de garantie</b></label>
+              <input type="date" [ngModel]="currentTicket.updateAt | date: 'yyyy-MM-dd'"
+              (ngModelChange)=" currentTicket.updateAt= $event" #date="ngModel" name="date" required>
+              <hr>
+          
+              <input type="submit" class="registerbtn" value="Modifier">
+            </div>
+          
+          </form>
+    </div>
+

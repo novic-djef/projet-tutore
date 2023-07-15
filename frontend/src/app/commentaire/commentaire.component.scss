@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .container {
+    padding: 14px;
+  }
+  
+  .alignement{
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+    }
+  
+    input[type=text], input[type=number], input[type=date], select[type=text] {
+      width: 100%;
+      padding: 12px;
+      margin: 5px 0 10px 0;
+      display: inline-block;
+      border: none;
+      background: #e4e4e4;
+    }
+    textarea[type=text]{
+      width: 100%;
+      padding: 12px;
+      margin: 5px 0 10px 0;
+      display: inline-block;
+      border: none;
+      background: #e4e4e4;
+    }
+    textarea[type=text]:focus  {
+      background-color: #cac8c8;
+      outline: none;
+    }
+    
+    input[type=text]:focus, input[type=date]:focus  {
+      background-color: #cac8c8;
+      outline: none;
+    }
+    
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 5px;
+    }
+    
+    .registerbtn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+    
+    .registerbtn:hover {
+      opacity:1;
+    }
+  
+    .btncolor{
+      color: #000;
+      font-size: 43px;
+    }
+  //   caption {
+  //     font-family: 'Rock Salt', cursive;
+  //     padding: 20px;
+  //     font-style: italic;
+  //     caption-side: top;
+  //     color: #666;
+  //     text-align: right;
+  //     letter-spacing: 1px;
+  //     align-items: center
+  //   }
+  
+    .group{
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    /* tableau */
+  .tabl{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  tbody tr:nth-child(odd) {
+      background-color: #b98cce;
+    }
+    
+    tbody tr:nth-child(even) {
+      background-color: #ccc;
+    }
+    
+    table {
+      background-color: #74d4c4;
+      border-collapse: collapse;
+      width: 100%;
+      height: auto;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+  
+   .btn2{
+      margin-left: 15px;
+      border-radius: 12px;
+      background-color: red;
+      border: none;
+      font-size: 18px;
+  }
+   .btn2 i{
+      margin: 5px;
+      border-radius: 12px;
+      color: rgb(255, 255, 255);
+  }
+  .btn1{
+   
+      background-color: rgb(12, 148, 80);
+      border: none;
+      font-size: 16px;
+      color: white;
+      width: 183px;
+      border-radius: 8px;
+  }
+  .btn1 i{
+      margin: 5px;
+      border-radius: 12px;
+      color: rgb(255, 255, 255);
+  }
+  .btn3 {
+    margin-left: 100%;
+    border-radius: 12px;
+    background-color: rgb(12, 148, 80);
+    border: none;
+    font-size: 22px;
+  
+  }
+  .btn3 i{
+    margin: 5px;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+  }
+  .texte {
+    margin: 12px;
+  }
+  .tache{
+    text-align: center;
+  }
+    
+
+  .contain {
+    
+  }

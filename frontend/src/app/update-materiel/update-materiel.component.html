@@ -1,0 +1,45 @@
+
+
+
+
+   
+      <div class="container">
+        
+         <form #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+             <div class="container">
+               <h1 class="alignement">Modifier un Matériel</h1>
+               <hr>
+           
+               <label for="password"><b>nom du matériel</b></label>
+               <input type="text" [(ngModel)]="currentMateriel.nom" #nom="ngModel" name="nom"  placeholder="Nom du matériel"required minlength="2">
+               
+               <label for="name"><b>Marque du matériel</b></label>
+               <input type="text" [(ngModel)]="currentMateriel.marque" #modele="ngModel" name="modele" placeholder="Entrer la marque du materiels" name="modele" required>
+     
+               
+               <input type="file" (change)="onchange($event)" style="display:none" >
+               <label for="image"><b>Image</b>
+               <img [src]="image" class="img-responsive img-thumbnail" style="width:70px;height:70px">
+              </label>
+                <hr>
+
+               <label for="password"><b>quantité</b></label>
+               <input type="number" [(ngModel)]="currentMateriel.quantite" #nom="ngModel" name="nom"  placeholder="Nom du matériel"required minlength="2">
+               
+               
+             
+               <label for="date"><b>date d'achat du matériel</b></label>
+               <input type="date"[ngModel]="currentMateriel.createdAt | date:'yyyy-MM-dd'"
+               (ngModelChange)="currentMateriel.createdAt= $event"  name="createdAt" required>
+     
+               <label for="email"><b>date d expiration de garantie</b></label>
+               <input type="date" [ngModel]="currentMateriel.updateAt | date: 'yyyy-MM-dd'"
+               (ngModelChange)=" currentMateriel.updateAt= $event" #date="ngModel" name="date" required>
+               <hr>
+           
+               <input type="submit" class="registerbtn" value="Modifier">
+             </div>
+           
+           </form>
+     </div>
+

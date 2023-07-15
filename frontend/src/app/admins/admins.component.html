@@ -1,0 +1,173 @@
+<div class="group">
+    <div class="col-4">
+        <div class="formulaire">
+            <form  #f="ngForm" (ngSubmit)="onSubmit(f)" ngNativeValidate >
+                <div class="container">
+                  <h1 class="alignement">Enregistrer un nouveau administrateur </h1>
+                  <hr>
+              
+                  <label for="name"><b>nom Admin</b></label>
+                  <input type="text" [(ngModel)]="newAdmin.username" placeholder="Entrer votre nom" #nomad="ngModel" name="nomad" required>
+              
+                  <label for="email"><b>Mail Admin</b></label>
+                  <input type="email" [(ngModel)]="newAdmin.email" #amail_ad="ngModel" name="email_ad" placeholder="Entrer une adress mail" required>
+
+                  <label for="password"><b>Password</b></label>
+                  <input type="password" [(ngModel)]="newAdmin.password"  #mdp="ngModel" name="mdp" placeholder="Entrer un mot de passe" name="password" id="password" required>
+                  
+                  <label for="phone"><b>Telephone</b></label>
+                  <input type="number" [(ngModel)]="newAdmin.image"  #numero="ngModel" name="numero" placeholder="Entrer votre numero de telephone" name="phone" id="phone" required>
+                  <hr>
+              
+                  <button type="submit" class="registerbtn" value="Envoyer">Enregistrer</button>
+                </div>
+              
+              </form>
+        </div>
+    </div>
+    <div class="col-8">
+        <h1 class="alignement"> Liste d'administrateur Enregistrés</h1>
+        <hr>
+        <div>
+          <a *ngIf="authservice.isAdmin()" routerLink="/add-admin"><button class="custom-btn btn-3"><span>Ajouter un admin</span></button></a>  </div>
+      
+        <div class="tabl">
+            
+            <table >
+                  
+                <thead>
+                  <tr>
+                    <th scope="col">#_ID</th>
+                    <th scope="col">Nom </th>
+                    
+                    <th scope="col">email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">image</th>
+                    <!-- <th scope="col" *ngIf="authservice.isAdmin()">Action1</th>
+                    <th scope="col" *ngIf="authservice.isAdmin()">Action2</th> -->
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr>
+                    <th scope="row">{{admin.id}}</th>
+                    <td>{{admin.username}}</td>
+                    <td>{{admin.email}}</td>
+                    <td> {{admin.password}}</td>
+                    <td><img  src="{{admin.image}}" class="img-responsive img-thumbnail" style="width:70px;height:70px"></td>
+                    <!-- <td><a *ngIf="authservice.isAdmin()" [routerLink]="['/update-admin',admin.id]" class="btn1"><i class="fas  fa-pen-square"></i></a></td>
+                    <td> <a *ngIf="authservice.isAdmin()" class="btn2" (click)="supprimerAdmin(admin.id)" ><i class="fas fa-trash"></i></a></td> -->
+                    <!-- <td><button *ngIf="authservice.isAdmin()" [routerLink]="['/update-admin',admin.id_ad]" class="btn1"><i class="fas  fa-pen-square"></i></button></td>
+                    <td> <button *ngIf="authservice.isAdmin()" class="btn2" (click)="supprimerAdmin(admin.id_ad)" ><i class="fas fa-trash"></i></button></td> -->
+                  </tr>
+                  <!-- <tr>
+                    <th scope="row">1002</th>
+                    <td>aubin</td>
+                    <td> 694789951</td>
+                    <td>aubin@yahoo.com</td>
+                    <td>jrhPjFaz</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+              
+                  <tr>
+                    <th scope="row">1003</th>
+                    <td>Clovis</td>
+                    <td> 650514417</td>
+                    <td>clovis@yahoo.com</td>
+                    <td>1234FRa</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1004</th>
+                    <td>torau</td>
+                    <td> 620089951</td>
+                    <td>torau@yahoo.com</td>
+                    <td>po5Tasg</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>   
+                  <tr>
+                    <th scope="row">1005</th>
+                    <td>stela</td>
+                    <td> 657189941</td>
+                    <td>stela@yahoo.com</td>
+                    <td>AS1&£j</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">1006</th>
+                    <td>berdol</td>
+                    <td> 655518317</td>
+                    <td>berdol@yahoo.com</td>
+                    <td>hAy44Fa</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">1007</th>
+                    <td>styve</td>
+                    <td> 66088951</td>
+                    <td>styve@yahoo.com</td>
+                    <td>Oq2Tasg</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr>   
+                  <tr> -->
+                    <!-- <th scope="row">1008</th>
+                    <td>yvanna</td>
+                    <td> 657189941</td>
+                    <td>yavanna@yahoo.com</td>
+                    <td>Y1aidg&1</td>
+                    <td><button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black" class="btn1"><i class="fas  fa-pen-square"></i></button> <button class="btn2"><i class="fas fa-trash"></i></button></td>
+                  </tr> -->
+                
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th scope="row" colspan="5">Total Administrateur enregistrés</th>
+                    <td  colspan="2">08</td>
+                  </tr>
+                </tfoot>
+              </table>
+              
+           
+        </div>
+     </div>
+
+   </div>
+    <!-- modal de modification utilisateur -->
+   <!-- <div class="w3-container">
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="btncolor w3-button w3-display-topright">&times;</span>
+          <div class="formulaire">
+            <form method="POST" >
+                <div class="container">
+                  <h1 class="alignement">Modifier l'utilisateur N°_1003</h1>
+                  <hr>
+              
+                  <label for="name"><b>Nom</b></label>
+                  <input type="text" placeholder="Entrer votre nom" name="name" id="name" required>
+              
+                  <label for="phone"><b>Telephone</b></label>
+                  <input type="number" placeholder="Entrer votre numero de telephone" name="phone" id="phone" required>
+        
+                  <label for="email"><b>email</b></label>
+                  <input type="email" placeholder="Entrer une adress mail" name="email" id="email" required>
+
+                  <label for="password"><b>Password</b></label>
+                  <input type="password" placeholder="Entrer un mot de passe" name="password" id="password" required>
+                  <hr>
+              
+                  <button type="submit" class="registerbtn">Modifier</button>
+                </div>
+              
+              </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+ 
+    
+
